@@ -38,8 +38,7 @@ function update(value) {
     operator = value;
     let display = document.getElementById("display");
     display.textContent = operator;
-    if (operator === "/" || operator === "x") {
-      operator = "+";
+   
     }
     if (item2 != "") {
       item1 = runningAnswer;
