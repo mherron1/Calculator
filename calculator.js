@@ -38,6 +38,9 @@ function update(value) {
     operator = value;
     let display = document.getElementById("display");
     display.textContent = operator;
+    if (operator === "/" || operator === "x") {
+      operator = "+";
+    }
     if (item2 != "") {
       item1 = runningAnswer;
       item2 = "";
@@ -52,13 +55,21 @@ function update(value) {
       let display = document.getElementById("display");
       display.textContent = value;
       runningAnswer = operate(operator, item1, item2);
+      display = document.getElementById("display");
+      display.textContent = item2;
     }
   }
 }
 
 function display() {
-  let display = document.getElementById("display");
-  display.textContent = runningAnswer;
+  if (runningAnswer === Infinity) {
+    let display = document.getElementById("display");
+    display.textContent = "omg  infinity!!!";
+  } else {
+    let n = Math.round(runningAnswer * 100 + Number.EPSILON) / 100;
+    let display = document.getElementById("display");
+    display.textContent = n;
+  }
 }
 
 function reset() {
