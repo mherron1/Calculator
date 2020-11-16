@@ -38,8 +38,6 @@ function update(value) {
     operator = value;
     let display = document.getElementById("display");
     display.textContent = operator;
-   
-    }
     if (item2 != "") {
       item1 = runningAnswer;
       item2 = "";
@@ -65,7 +63,7 @@ function display() {
     let display = document.getElementById("display");
     display.textContent = "omg  infinity!!!";
   } else {
-    let n = Math.round(runningAnswer * 100 + Number.EPSILON) / 100;
+    let n = Math.round(runningAnswer * 10000) / 10000;
     let display = document.getElementById("display");
     display.textContent = n;
   }
