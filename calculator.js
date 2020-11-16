@@ -36,19 +36,21 @@ let runningAnswer = "0";
 function update(value) {
   if (value === "+" || value === "-" || value === "x" || value === "/") {
     operator = value;
+    let display = document.getElementById("display");
+    display.textContent = operator;
     if (item2 != "") {
       item1 = runningAnswer;
       item2 = "";
-      console.log(operator);
     }
   } else {
     if (operator === "") {
       item1 += value;
-      console.log(item1);
       runningAnswer = item1;
+      display();
     } else {
       item2 += value;
-      console.log(item2);
+      let display = document.getElementById("display");
+      display.textContent = value;
       runningAnswer = operate(operator, item1, item2);
     }
   }
@@ -65,5 +67,4 @@ function reset() {
   operator = "";
   item1 = "";
   item2 = "";
-  console.log(item1 + " " + operator + "" + item2);
 }
